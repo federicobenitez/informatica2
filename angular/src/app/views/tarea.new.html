@@ -1,0 +1,117 @@
+<div class="col-md-12">
+
+	<div class="loader" *ngIf="loading == 'show'">
+		<img src="assets/img/loader2.gif">
+	</div>
+
+	<div class="col-md-12" *ngIf="!loading || tarea">
+
+		<h3>{{title}}</h3>
+		<hr>
+		<br>
+		<div class="alert alert-success" *ngIf="status == 'success'">
+			Tarea creada correctamente correctamente!!.
+		</div>
+
+		<div class="alert alert-danger" *ngIf="status == 'error'">
+			Error al crear tarea.{{msg}}
+		</div> 
+
+		<form class="col-md-7" #tareaNewForm="ngForm" (ngSubmit)="onSubmit()">
+			<!--
+			<p>
+				<label>Fecha:{{task.fecha.timestamp | generateDate}}</label>
+				
+				<input type="text" name="fecha" class="form-control" #fecha="ngModel" [(ngModel)]="task.fecha.timestamp"  required="true">{{task.fecha.timestamp | generateDate}}
+				<span *ngIf="!fecha.valid && fecha.touched">
+					La fecha no es correcta!!
+				</span>
+			</p> -->
+
+			<p>
+				<label>Registro:</label>
+				<input type="text" name="nRegistro" class="form-control" #nRegistro="ngModel" [(ngModel)]="tarea.nRegistro" required="true">
+			</p>
+			<p>
+				<label>Solicitante:</label>
+				<input type="text" name="solicitante" class="form-control" #solicitante="ngModel" [(ngModel)]="tarea.solicitante" required="true">
+			</p>
+			<p>
+				<label>Servicio de Reparación:</label>
+				<input type="text" name="sReparacion" class="form-control" #sReparacion="ngModel" [(ngModel)]="tarea.sReparacion">
+			</p>
+			<p>
+				<label>Servicio de Redes:</label>
+				<input type="text" name="sRedes" class="form-control" #sRedes="ngModel" [(ngModel)]="tarea.sRedes">
+			</p>
+			<p>
+				<label>Servicio Telefónico:</label>
+				<input type="text" name="sTelefonico" class="form-control" #sTelefonico="ngModel" [(ngModel)]="tarea.sTelefonico">
+			</p>
+
+			<p>
+				<label>Servicio de Asesoriamiento:</label>
+				<textarea class="form-control" name="sAsesoramiento" #sAsesoramiento="ngModel" [(ngModel)]="tarea.sAsesoramiento"></textarea>
+			</p>
+			
+			<p>
+				<label>Marca:</label>
+				<input type="text" class="form-control" name="marca" #marca="ngModel" [(ngModel)]="tarea.marca">
+			</p>
+			<p>
+				<label>Modelo:</label>
+				<input type="text" name="modelo" class="form-control" #modelo="ngModel" [(ngModel)]="tarea.modelo">
+			</p>
+			<p>
+				<label>Número de Inventario:</label>
+				<input type="text" name="nInventario" class="form-control" #nInventario="ngModel" [(ngModel)]="tarea.nInventario">
+			</p>
+			<p>
+				<label>Revisión Técnica:</label>
+				<textarea name="rrevTecnica" class="form-control" #rrevTecnica="ngModel" [(ngModel)]="tarea.rrevTecnica"></textarea>
+			</p>
+			<p>
+				<label>Falla Hardware:</label>
+				<input type="text" name="fallaHard" class="form-control" #falla_hard="ngModel" [(ngModel)]="tarea.fallaHard">
+			</p>
+			<p>
+				<label>Falla Software:</label>
+				<input type="text" name="fallaSoft" class="form-control" #fallaSoft="ngModel" [(ngModel)]="tarea.fallaSoft">
+			</p>
+			<p>
+				<label>Recomendaciones:</label>
+				<textarea name="recomendaciones" class="form-control" #recomendaciones="ngModel" [(ngModel)]="tarea.recomendaciones"></textarea>
+			</p>
+			<p>
+				<label>Destino:</label>
+				<select name="destino" class="form-control" #destino="ngModel" [(ngModel)]="tarea.destino">
+					<option value="devuelto con reparación" selected>Devuelto con Reparación</option>
+					<option value="devuelto sin reparación">Devuelto sin Reparación</option>
+					<option value="pasado a otros para reparación">Pasado a otros para Reparación</option>
+				</select>
+			</p>
+			<p>
+				<label>Devuelto fecha:</label>
+				<input type="date" name="fechaDest" class="form-control" #fechaDest="ngModel" [(ngModel)]="tarea.fechaDest">
+			</p>
+			<p>
+				<label>Devuelto hora:</label>
+				<input type="time" name="horaDest" class="form-control" #horaDest="ngModel" [(ngModel)]="tarea.horaDest">
+			</p>
+			<p>
+				<label>Motivo:</label>
+				<textarea name="motivo" class="form-control" #motivo="ngModel" [(ngModel)]="tarea.motivo"></textarea>
+			</p>
+			<p>
+				<label>Fallas Detectadas:</label>
+				<textarea name="fallasDet" class="form-control" #fallasDet="ngModel" [(ngModel)]="tarea.fallasDet"></textarea>
+			</p>
+			<p>
+				<label>Medidas Tomadas:</label>
+				<textarea name="medidasTom" class="form-control" #medidasTom="ngModel" [(ngModel)]="tarea.medidasTom"></textarea>
+			</p>
+
+			<input type="submit" name="" value="{{title}}" class="btn btn-success" [disabled]="!tareaNewForm.form.valid">		
+		</form>
+	</div>
+</div>

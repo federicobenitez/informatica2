@@ -1,0 +1,29 @@
+tarea_new:
+    path: /new 
+    defaults: { _controller: "AppBundle:Tarea:new" }
+    methods: POST  
+
+tarea_edit:
+    path: /edit/{id}
+    defaults: { _controller: "AppBundle:Tarea:new", id: null }
+    methods: POST
+
+tarea_list:
+    path: /list 
+    defaults: { _controller: "AppBundle:Tarea:list" }
+    methods: POST
+
+tarea_detail:
+    path: /detail/{id}
+    defaults: { _controller: "AppBundle:Tarea:detail", id: null }
+    methods: POST
+
+tarea_search:
+    path: /search/{search}
+    defaults: { _controller: "AppBundle:Tarea:search", search: null}
+    methods: POST
+
+tarea_remove:
+     path: /remove/{id}
+     defaults: { _controller: "AppBundle:Tarea:remove", id: null } 
+     methods: POST

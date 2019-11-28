@@ -1,0 +1,46 @@
+<div class="col-md-12">
+	<h3>{{title}}</h3>
+	<hr>
+
+	<div class="alert alert-success" *ngIf="status == 'success'">
+		Usuario registrado correctamente.
+	</div>
+
+	<div class="alert alert-danger" *ngIf="status == 'error'">
+		Error al registrar usuario.
+	</div>
+
+	<form #registerForm="ngForm" (ngSubmit)="onSubmit(); registerForm.reset();" class="col-md-7" no-padding>
+		<p>
+			<label>Nombre/s:</label>
+			<input type="text"  class="form-control" name="nombre" #nombre="ngModel" [(ngModel)]="usuario.nombre" required>
+			<span *ngIf="!nombre.valid && nombre.touched">El nombre no es válido</span>
+		</p>
+		<p>
+			<label>Apellido:</label>
+			<input type="text"  class="form-control" name="apellido" #apellido="ngModel" [(ngModel)]="usuario.apellido" required>
+			<span *ngIf="!apellido.valid && apellido.touched">El apellido no es válido</span>
+		</p>
+		<p>
+			<label>Email:</label>
+			<input type="text"  class="form-control" name="email" #email="ngModel" [(ngModel)]="usuario.email" required>
+			<span *ngIf="!email.valid && email.touched">El email no es válido</span>
+		</p>
+		<p>
+			<label>Contraseña:</label>
+			<input type="password"  class="form-control" name="password" #password="ngModel" [(ngModel)]="usuario.password" required>
+			<span *ngIf="!password.valid && password.touched">La contraseña no es válida</span>
+		</p>
+		<p>
+			<label>Rol:</label>
+			<select class="form-control" name="rol" #role="ngModel" [(ngModel)]="usuario.role">
+				<option value="administrador">Administrador</option>
+				<option value="usuario">Usuario</option>
+			</select>
+		</p>
+		<p align="middle">
+			<input type="submit" value="CREAR USUARIO" class="btn btn-success" [disabled]="!registerForm.form.valid">
+		</p>
+	</form>
+
+</div>

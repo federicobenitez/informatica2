@@ -1,0 +1,79 @@
+<div class="col-md-12">
+	<div *ngIf="!identity || identity == null">
+		Inicia sesión para acceder a más opciones...
+	</div>
+
+	<div class="col-md-12" *ngIf="identity">
+		<!--MOSTRAR BUSCADOR-->
+		
+		<form class="col-md-12" role="search">
+			
+			<div class="clearfix"></div>
+			<div class="form-group col-md-10">
+				<input type="text" class="form-control" placeholder="¿Que tarea buscas?" name="searchString" [(ngModel)]="searchString"/>
+			</div>
+			<button type="submit" class="btn btn btn-info btn-search" (click)="search();">
+				<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+				Buscar
+			</button>
+		</form>
+	
+
+		<div>
+			<div class="loader" *ngIf="loading == 'show'">
+				<img src="assets/img/loader2.gif" />
+			</div>
+
+			<table class="table table-hover table-stripped" *ngIf="tareas && tareas.length >= 1">
+				<tr>
+					<th>Número de Registro</th>
+					<th>Solicitante</th>
+					<th>Accion</th>
+				</tr>
+				<tr *ngFor="let tarea of tareas">
+					<td>
+						<h4>
+							<a [routerLink]="['tarea', tarea.id]">{{tarea.nRegistro}}</a>
+	
+						</h4>
+					</td>
+					<td>
+						<h4>
+							{{tarea.solicitante}}
+						</h4>
+					</td>
+					<td>
+						<a [routerLink]="['tarea-edit', tarea.id]" class="btn btn-warning">Editar</a>
+					</td>
+				</tr>
+			</table>
+
+			<div class="col-md-12" *ngIf="loading != 'hide' && !tareas || tareas.length == 0">
+				<div class="clearfix"></div>
+				<div class="alert alert-warning" >
+					No se han encontrado tareas, crealas <a [routerLink]="['/tarea-new']">pinchando aqui</a>.
+				</div>
+			</div>
+
+			<ul class="pagination" *ngIf="tareas && tareas.length >= 1">
+				<!-- && !searchString && !filter && !order">-->
+				<li>
+					<a [routerLink]="['/index', pagePrev]" aria-label="Previous">
+						<span aria-hidden="true">&laquo;</span>
+					</a>
+				</li>
+				<li *ngFor="let page of pages">
+					<a [routerLink]="['/index', page+1]">{{page+1}}</a>
+				</li>
+				<li>
+					<a [routerLink]="['/index', pageNext]" aria-label="Next">
+						<span aria-hidden="true">&raquo;</span>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div>
+
+	</div>
+</div>

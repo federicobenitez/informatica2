@@ -1,0 +1,30 @@
+html, body{
+	/*background-color: #a8c7b8;*/
+}
+#logo{
+	height: 35px;
+	margin-top: -10px;
+}
+
+#header{
+	margin-top: 15px;
+}
+.no-padding{
+	padding-left: 0px; /* para alinear los componentes a la izquierda*/
+}
+
+.loader img{
+	display: block;
+	margin: 0px auto;
+	text-align: center;
+	margin-bottom: 15px;
+}
+
+#footer {
+
+  position: absolute;
+ /* top: 200px;*/
+  bottom: 0;
+  width: 100%;
+  height: 2.5rem;            /* Footer height */
+}

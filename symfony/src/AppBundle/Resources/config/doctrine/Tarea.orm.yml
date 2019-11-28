@@ -1,0 +1,164 @@
+AppBundle\Entity\Tarea:
+    type: entity
+    table: tareas
+    indexes:
+        fk_tarea_usuarios:
+            columns:
+                - usuario_id
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        nRegistro:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: n_registro
+        solicitante:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        sReparacion:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: s_reparacion
+        sRedes:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: s_redes
+        sTelefonico:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: s_telefonico
+        sAsesoramiento:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+            column: s_asesoramiento
+        marca:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        modelo:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        nInventario:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: n_inventario
+        rrevTecnica:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+            column: rrev_tecnica
+        fallaHard:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: falla_hard
+        fallaSoft:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: falla_soft
+        recomendaciones:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        destino:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        fechaDest:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: fecha_dest
+        horaDest:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: hora_dest
+        motivo:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+        fallasDet:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+            column: fallas_det
+        medidasTom:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+            column: medidas_tom
+        createdAt:
+            type: datetime
+            nullable: true
+            column: created_at
+        updatedAt:
+            type: datetime
+            nullable: true
+            column: updated_at
+    manyToOne:
+        usuario:
+            targetEntity: Usuario
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                usuario_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

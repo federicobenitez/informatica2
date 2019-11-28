@@ -1,0 +1,142 @@
+<div class="col-md-12 ">
+	<div class="loader" *ngIf="loading == 'show'">
+		<img src="assets/img/loader2.gif">
+	</div>
+
+	<div class="col-md-12" *ngIf="tarea">
+		<div class="panel panel-default task-data">
+			<div class="panel-heading">
+				<h3 class="panel-title">
+					
+					Tarea creada por <strong>{{tarea.usuario.nombre + ' ' + tarea.usuario.apellido}}</strong> el {{tarea.createdAt.timestamp | generateDate}}
+				</h3>
+			</div>
+			<div class="panel-body">
+				<ul>
+					<li>
+						<div>
+							<b>Numero de Registro:</b> {{tarea.nRegistro}}
+						</div>
+					</li>
+					<li>
+						<div>
+							<b>Solicitante:</b> {{tarea.solicitante}}
+						</div>
+					</li>
+					<li>
+						<div>
+							<b>Servicio de Reparación: </b>{{tarea.sReparacion}}
+						</div>
+					</li>
+					<li>
+						<div>
+							<b>Servicio de Redes:</b> {{tarea.sRedes}}
+						</div>
+					</li>
+					<li>
+						<div>
+							<b>Servicio Telefónico: </b>{{tarea.sTelefonico}}
+						</div>
+					</li>
+					<li>
+						<div>
+							<b>Servicio de Asesoramiento:</b> {{tarea.sAsesoramiento}}
+						</div>
+					</li>
+					<li>
+						<div>
+							<b>Marca: </b>{{tarea.marca}}
+						</div>
+					</li>
+					<li>
+						<div>
+							<b>Modelo: </b>{{tarea.modelo}}
+						</div>
+					</li>
+					<li>
+						<div>
+							<b>Número de Inventario: </b>{{tarea.nInventario}}
+						</div>
+					</li>
+					<li>
+						<div>
+							<b>Revisión Técnica: </b>{{tarea.rrevTecnica}}
+						</div>
+					</li>
+					<li>
+						<div>
+							<b>Falla Hardware: </b>{{tarea.fallaHard}}
+						</div>
+					</li>
+					<li>
+						<div>
+							<b>Falla Software: </b>{{tarea.fallaSoft}}
+						</div>
+					</li>
+					<li>
+						<div>
+							<b>Recomendaciones: </b>{{tarea.recomendaciones}}
+						</div>
+					</li>
+					<li>
+						<div>
+							<b>Destino: </b>{{tarea.destino}}
+						</div>
+					</li>
+					<li>
+						<div>
+							<b>Fecha Destino: </b>{{tarea.fechaDest}}
+						</div>
+					</li>
+					<li>
+						<div>
+							<b>Hora Destino: </b>{{tarea.horaDest}}
+						</div>
+					</li>
+					<li>
+						<div>
+							<b>Motivo: </b>{{tarea.motivo}}
+						</div>
+					</li>
+					<li>
+						<div>
+							<b>Fallas Detectadas: </b>{{tarea.fallasDet}}
+						</div>
+					</li>
+					<li>
+						<div>
+							<b>Medidas Tomadas: </b>{{tarea.medidasTom}}
+						</div>
+					</li>
+				</ul>
+
+			</div>
+		</div>
+
+		<!--modal para el boton borrar-->
+		<!-- Trigger the modal with a button -->
+		<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">Borrar</button>
+
+		<button type="button" class="btn btn-info" (click)="pdf()">Generar PDF</button>
+
+		<!-- Modal -->
+		<div id="myModal" class="modal fade" role="dialog">
+		  <div class="modal-dialog">
+
+		    <!-- Modal content-->
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal">&times;</button>
+		        <h4 class="modal-title">¿Estás seguro?</h4>
+		      </div>
+		      <div class="modal-body">
+		        <p>Vas a eliminar pemanentemente esta tarea, no podrás recuperarla</p>
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="deleteTarea(tarea.id)">Si, quiero borrarla</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+	</div>
+</div>
